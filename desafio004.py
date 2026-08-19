@@ -1,0 +1,8 @@
+algo = input("digite algo: ")
+print("tipo da variavel",type(algo))
+print("tem espaços", algo.isspace)
+print("tem números", algo.isnumeric)
+print("é alfabético", algo.isalpha)
+print("é alfanúmerico", algo.isalnum)
+print("está em maiúscula", algo.isupper)
+print("está em minúscula", algo.islower)
