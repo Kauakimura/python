@@ -1,65 +1,40 @@
-#Pesquisa sobre Sexo e Estado Civil: 
-  # A prefeitura de uma cidade fez uma pesquisa entre seus habitantes, coletando dados sobre o sexo e estado civil. A prefeitura deseja saber:
-  # a) distribuição da população por sexo;
-  # b) percentual de pessoas solteiras;
-  # c) quantidade de pessoas casadas;
-  # d) percentual de pessoas divorciadas.
-   #Ao final de cada iteração, o usuário deve informar se deseja continuar ou não a responder a pesquisa.
+ #Pesquisa sobre Nível de Satisfação e Tempo de Residência: 
+   #A prefeitura de uma cidade fez uma pesquisa entre seus habitantes, coletando dados sobre o nível de satisfação com a cidade e tempo de residência. A prefeitura deseja saber:
+   #a) distribuição da população com base no nível de satisfação;
+   #b) tempo de residência médio na cidade;
+   #c) percentual de pessoas insatisfeitas;
+   #d) percentual de pessoas que residem na cidade há mais de 10 anos.
+  # Ao final de cada iteração, o usuário deve informar se deseja continuar ou não a responder a pesquisa.
 
-populacao = int(input("Informe a quantidade de população: "))
+populacao = int(input("me informe a quantidade de população: "))
 
-branco = 0
-preto = 0
-pardo = 0
-amarelo = 0
-superiorCompleto = 0
-medioIncompleto = 0
+satisfeitos = 0
+insatisfeitos = 0
+tempoCidade = 0
+for i in range(1, populacao + 1):
+    satisfeito = input("vc está satisfeito (s/n): ")
 
-for i in range(1, populacao +1):
-    
-    corPele = str(input("informe a cor da pele entre (branco,preto,pardo,amarelo)")).lower()
-
-    if corPele == "branco":
-        branco += 1
-        print(f"quantidade de pessoas da cor branca é {branco}")
-    elif corPele == "preto":
-        preto +=1
-        print(f"quantidade de pessoas da cor preta é {preto}")
-    elif corPele == "pardo":
-        pardo +=1
-        print(f"quantidade de pessoas da cor parda é {pardo}")
+    if satisfeito == 's':
+        satisfeitos+=1
     else:
-        print(f"quantidade de pessoas da cor amarela é {amarelo}")
-        amarelo += 1
+        insatisfeitos+=1
 
-    cont = input("quer continua? (s/n): ")
-
+    cont = input("quer continuar (s/n): ")
     if cont == 'n':
-        print("fim da entrevista")
+        print("fim")
         continue
 
-    ensinoSuperior = input("vc tem o ensino superior completo sim=(1) ou não=(0): ")
 
-    if ensinoSuperior == 1:
-        superior += 1
-        porcentualSuperior = superior * populacao / 100
-        
-        continue
+    tempo = int(input("tempo que vc reside na cidade: "))
 
-    cont = input("quer continua? (s/n): ")
+    if tempo >= 10:
+        tempoCidade+=1
 
-    if cont == 'n':
-        print("fim da entrevista")
-        continue
-    
-    ensinoMedio = input("vc tem o ensino medio incompleto sim=(1) ou não=(0): ")
+print(f"quantidade de pessoas que estão satisfeitas {satisfeitos} e insatisfeitos {insatisfeitos} ")
+print(f"o tempo de residencia media na cidade é {tempo /populacao} ")
+print(f"o percentual de possoas insatisfeitas é {(insatisfeitos*populacao)/100}%")
+print(f"o percentual de possoas que vivem na cidade a mais de 10 anos é {(tempoCidade * populacao)/100}%")
 
-    if ensinoMedio == 1:
-        medio += 1
-        porcentualMedio = medio * populacao /100
-        continue
 
-print("="*100)
-print(f"o total de pessoas com cor de pele branca é {branco}, da cor preta é {preto}, da cor parda é {pardo}, da cor amarela é {amarelo}")
-print(f"pessoas com o ensino superior completo é de {ensinoSuperior} {superior} ")
-print(f"pessoas com o ensino médio incompleto é de {medioIncompleto} {medio} ")
+
+
